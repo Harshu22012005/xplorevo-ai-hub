@@ -1,4 +1,5 @@
 import logo from "@/assets/xtn-logo.png";
+import { Mail } from "lucide-react";
 
 const sections = [
   { title: "About", links: ["Our Mission", "Team", "Blog", "Careers"] },
@@ -14,9 +15,15 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
           <div className="col-span-2 md:col-span-1">
             <img src={logo} alt="XTN" className="w-10 h-10 rounded-lg mb-3" />
-            <p className="text-muted-foreground text-xs leading-relaxed">
+            <p className="text-muted-foreground text-xs leading-relaxed mb-3">
               Xplorevo Tech Network – Your gateway to the best AI tools for startups and innovation.
             </p>
+            <a
+              href="mailto:connect@xplorevo.com"
+              className="inline-flex items-center gap-1.5 text-primary hover:text-primary/80 text-xs transition-colors"
+            >
+              <Mail className="w-3.5 h-3.5" /> connect@xplorevo.com
+            </a>
           </div>
           {sections.map((section) => (
             <div key={section.title}>

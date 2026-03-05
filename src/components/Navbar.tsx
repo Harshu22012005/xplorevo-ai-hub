@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Search, Menu, X } from "lucide-react";
+import { Search, Menu, X, Unlock } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/xtn-logo.png";
 
@@ -20,7 +20,6 @@ const Navbar = ({ onSearch }: { onSearch?: (query: string) => void }) => {
           <span className="font-heading font-bold text-lg text-gradient hidden sm:block">XTN AI Buddies</span>
         </Link>
 
-        {/* Desktop search */}
         <div className="hidden md:flex items-center bg-muted rounded-lg px-3 py-1.5 w-80">
           <Search className="w-4 h-4 text-muted-foreground mr-2 shrink-0" />
           <input
@@ -32,14 +31,15 @@ const Navbar = ({ onSearch }: { onSearch?: (query: string) => void }) => {
           />
         </div>
 
-        {/* Desktop links */}
         <div className="hidden md:flex items-center gap-6 text-sm">
-          <a href="#tools" className="text-muted-foreground hover:text-foreground transition-colors">Tools</a>
-          <a href="#categories" className="text-muted-foreground hover:text-foreground transition-colors">Categories</a>
-          <a href="#community" className="text-muted-foreground hover:text-foreground transition-colors">Community</a>
+          <a href="/#tools" className="text-muted-foreground hover:text-foreground transition-colors">Tools</a>
+          <a href="/#categories" className="text-muted-foreground hover:text-foreground transition-colors">Categories</a>
+          <a href="/#community" className="text-muted-foreground hover:text-foreground transition-colors">Community</a>
+          <Link to="/free-ai-tools" className="inline-flex items-center gap-1 text-primary hover:text-primary/80 transition-colors font-medium">
+            <Unlock className="w-3.5 h-3.5" /> Free Tools
+          </Link>
         </div>
 
-        {/* Mobile toggle */}
         <button onClick={() => setMobileOpen(!mobileOpen)} className="md:hidden text-foreground">
           {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
@@ -57,9 +57,12 @@ const Navbar = ({ onSearch }: { onSearch?: (query: string) => void }) => {
               className="bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none w-full"
             />
           </div>
-          <a href="#tools" className="block text-muted-foreground hover:text-foreground text-sm" onClick={() => setMobileOpen(false)}>Tools</a>
-          <a href="#categories" className="block text-muted-foreground hover:text-foreground text-sm" onClick={() => setMobileOpen(false)}>Categories</a>
-          <a href="#community" className="block text-muted-foreground hover:text-foreground text-sm" onClick={() => setMobileOpen(false)}>Community</a>
+          <a href="/#tools" className="block text-muted-foreground hover:text-foreground text-sm" onClick={() => setMobileOpen(false)}>Tools</a>
+          <a href="/#categories" className="block text-muted-foreground hover:text-foreground text-sm" onClick={() => setMobileOpen(false)}>Categories</a>
+          <a href="/#community" className="block text-muted-foreground hover:text-foreground text-sm" onClick={() => setMobileOpen(false)}>Community</a>
+          <Link to="/free-ai-tools" className="block text-primary hover:text-primary/80 text-sm font-medium" onClick={() => setMobileOpen(false)}>
+            <Unlock className="w-3.5 h-3.5 inline mr-1" /> Free AI Tools
+          </Link>
         </div>
       )}
     </nav>
