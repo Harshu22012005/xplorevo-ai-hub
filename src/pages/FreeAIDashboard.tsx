@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Lock, Unlock, ArrowLeft, ExternalLink } from "lucide-react";
+import { Lock, Unlock, ArrowLeft, ExternalLink, Search } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,24 +9,32 @@ import Footer from "@/components/Footer";
 import { toast } from "sonner";
 
 const freeTools = [
-  { name: "ChatGPT", url: "https://chat.openai.com", embed: "https://chat.openai.com", desc: "AI chatbot for conversations, coding, and content." },
-  { name: "Google Gemini", url: "https://gemini.google.com", embed: "https://gemini.google.com", desc: "Google's multimodal AI assistant." },
-  { name: "Claude", url: "https://claude.ai", embed: "https://claude.ai", desc: "Anthropic's safe & helpful AI assistant." },
-  { name: "Canva", url: "https://canva.com", embed: "https://canva.com", desc: "Free design tool with AI features." },
-  { name: "Remove.bg", url: "https://remove.bg", embed: "https://remove.bg", desc: "AI background removal tool." },
-  { name: "Gamma", url: "https://gamma.app", embed: "https://gamma.app", desc: "AI-powered presentations and documents." },
-  { name: "Hugging Face", url: "https://huggingface.co", embed: "https://huggingface.co", desc: "Open-source AI model hub and playground." },
-  { name: "Perplexity", url: "https://perplexity.ai", embed: "https://perplexity.ai", desc: "AI-powered search engine with citations." },
-  { name: "Poe", url: "https://poe.com", embed: "https://poe.com", desc: "Access multiple AI bots in one platform." },
-  { name: "Leonardo AI", url: "https://leonardo.ai", embed: "https://leonardo.ai", desc: "Free AI image generation platform." },
-  { name: "Ideogram", url: "https://ideogram.ai", embed: "https://ideogram.ai", desc: "AI image generation with text rendering." },
-  { name: "Clipdrop", url: "https://clipdrop.co", embed: "https://clipdrop.co", desc: "AI-powered visual editing suite." },
+  { name: "ChatGPT", url: "https://chat.openai.com", desc: "AI chatbot for conversations, coding, and content.", category: "Writing" },
+  { name: "Google Gemini", url: "https://gemini.google.com", desc: "Google's multimodal AI assistant.", category: "Writing" },
+  { name: "Claude", url: "https://claude.ai", desc: "Anthropic's safe & helpful AI assistant.", category: "Writing" },
+  { name: "Canva", url: "https://canva.com", desc: "Free design tool with AI features.", category: "Graphics" },
+  { name: "Remove.bg", url: "https://remove.bg", desc: "AI background removal tool.", category: "Graphics" },
+  { name: "Gamma", url: "https://gamma.app", desc: "AI-powered presentations and documents.", category: "Writing" },
+  { name: "Hugging Face", url: "https://huggingface.co", desc: "Open-source AI model hub and playground.", category: "APIs" },
+  { name: "Perplexity", url: "https://perplexity.ai", desc: "AI-powered search engine with citations.", category: "Writing" },
+  { name: "Poe", url: "https://poe.com", desc: "Access multiple AI bots in one platform.", category: "Writing" },
+  { name: "Leonardo AI", url: "https://leonardo.ai", desc: "Free AI image generation platform.", category: "Graphics" },
+  { name: "Ideogram", url: "https://ideogram.ai", desc: "AI image generation with text rendering.", category: "Graphics" },
+  { name: "Clipdrop", url: "https://clipdrop.co", desc: "AI-powered visual editing suite.", category: "Graphics" },
+  { name: "Grammarly", url: "https://grammarly.com", desc: "AI writing assistant for grammar and clarity.", category: "Writing" },
+  { name: "QuillBot", url: "https://quillbot.com", desc: "AI paraphrasing and summarization tool.", category: "Writing" },
+  { name: "Descript", url: "https://descript.com", desc: "AI-powered video & podcast editing.", category: "Video Editing" },
+  { name: "Loom", url: "https://loom.com", desc: "AI-enhanced screen recording and messaging.", category: "Video Editing" },
+  { name: "Notion AI", url: "https://notion.so", desc: "AI assistant for writing and productivity.", category: "Writing" },
+  { name: "Vercel v0", url: "https://v0.dev", desc: "AI-powered UI generation tool.", category: "Web Development" },
+  { name: "Replit", url: "https://replit.com", desc: "AI-powered collaborative coding platform.", category: "Application Development" },
+  { name: "Zapier", url: "https://zapier.com", desc: "Workflow automation with AI features.", category: "Automation" },
 ];
 
 const FreeAIDashboard = () => {
   const [authenticated, setAuthenticated] = useState(false);
   const [passkey, setPasskey] = useState("");
-  const [selectedTool, setSelectedTool] = useState<typeof freeTools[0] | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleUnlock = (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,6 +45,13 @@ const FreeAIDashboard = () => {
       toast.error("Invalid passkey. Please try again.");
     }
   };
+
+  const filteredTools = freeTools.filter(
+    (t) =>
+      t.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      t.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      t.category.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   if (!authenticated) {
     return (
@@ -79,83 +94,66 @@ const FreeAIDashboard = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <div className="container mx-auto px-4 py-8">
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
           <div>
             <h1 className="text-3xl font-heading font-bold text-foreground">
               Free AI Tools <span className="text-gradient-gold">Dashboard</span>
             </h1>
-            <p className="text-muted-foreground text-sm mt-1">Click any tool to open it. Enjoy exploring!</p>
+            <p className="text-muted-foreground text-sm mt-1">Click "Open Tool" to launch any AI tool in a new tab.</p>
           </div>
           <Link to="/" className="text-muted-foreground hover:text-foreground text-sm">
             <ArrowLeft className="w-4 h-4 inline mr-1" /> Home
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Tool list */}
-          <div className="space-y-3">
-            {freeTools.map((tool) => (
-              <motion.button
-                key={tool.name}
-                onClick={() => setSelectedTool(tool)}
-                className={`w-full text-left p-4 rounded-xl border transition-all ${
-                  selectedTool?.name === tool.name
-                    ? "bg-primary/10 border-primary/40"
-                    : "bg-card border-border hover:border-primary/20"
-                }`}
-                whileHover={{ x: 4 }}
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center font-heading font-bold text-primary">
-                    {tool.name.charAt(0)}
-                  </div>
-                  <div>
-                    <h3 className="font-heading font-semibold text-foreground text-sm">{tool.name}</h3>
-                    <p className="text-muted-foreground text-xs">{tool.desc}</p>
-                  </div>
-                </div>
-              </motion.button>
-            ))}
-          </div>
-
-          {/* Embed area */}
-          <div className="lg:col-span-2">
-            {selectedTool ? (
-              <motion.div
-                key={selectedTool.name}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="bg-card border border-border rounded-2xl overflow-hidden"
-              >
-                <div className="flex items-center justify-between p-4 border-b border-border">
-                  <h2 className="font-heading font-semibold text-foreground">{selectedTool.name}</h2>
-                  <Button asChild size="sm" variant="outline" className="border-border text-foreground">
-                    <a href={selectedTool.url} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="w-3.5 h-3.5 mr-1.5" /> Open in New Tab
-                    </a>
-                  </Button>
-                </div>
-                <div className="w-full h-[600px] bg-muted flex items-center justify-center">
-                  <iframe
-                    src={selectedTool.embed}
-                    className="w-full h-full border-0"
-                    title={selectedTool.name}
-                    sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-                  />
-                </div>
-              </motion.div>
-            ) : (
-              <div className="bg-card border border-border rounded-2xl h-[600px] flex items-center justify-center text-center">
-                <div>
-                  <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center mx-auto mb-4">
-                    <Unlock className="w-7 h-7 text-muted-foreground" />
-                  </div>
-                  <p className="text-muted-foreground font-heading">Select a tool from the list to get started</p>
-                </div>
-              </div>
-            )}
-          </div>
+        {/* Search */}
+        <div className="flex items-center bg-muted rounded-lg px-3 py-2 w-full max-w-md mb-8">
+          <Search className="w-4 h-4 text-muted-foreground mr-2 shrink-0" />
+          <input
+            type="text"
+            placeholder="Search free tools..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none w-full"
+          />
         </div>
+
+        {/* Tools grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          {filteredTools.map((tool, i) => (
+            <motion.div
+              key={tool.name}
+              className="bg-card border border-border rounded-xl p-5 flex flex-col hover:border-primary/30 transition-all card-glow"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.03 }}
+              whileHover={{ y: -4 }}
+            >
+              <div className="flex items-start justify-between mb-3">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center font-heading font-bold text-primary text-lg">
+                  {tool.name.charAt(0)}
+                </div>
+                <span className="text-[10px] px-2 py-0.5 rounded-full border border-border text-muted-foreground">
+                  {tool.category}
+                </span>
+              </div>
+              <h3 className="font-heading font-semibold text-foreground mb-1">{tool.name}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">{tool.desc}</p>
+              <a
+                href={tool.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 text-sm bg-primary/10 hover:bg-primary/20 text-primary rounded-lg py-2.5 transition-colors font-medium"
+              >
+                <ExternalLink className="w-4 h-4" /> Open Tool
+              </a>
+            </motion.div>
+          ))}
+        </div>
+
+        {filteredTools.length === 0 && (
+          <p className="text-center text-muted-foreground py-20">No tools found matching your search.</p>
+        )}
       </div>
       <Footer />
     </div>
