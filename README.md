@@ -1,73 +1,125 @@
-# Welcome to your Lovable project
+# Xplorevo Tech Network – AI Buddies
 
-## Project info
+## 🚀 Overview
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+**Xplorevo Tech Network – AI Buddies** is a futuristic AI tools discovery platform designed to help **startups, developers, entrepreneurs, and students** explore the most powerful AI tools available today.
 
-## How can I edit this code?
+The platform curates **100+ AI tools across multiple categories** including development, design, automation, finance, and startup operations. It serves as a **central AI toolkit hub** where innovators can discover tools to build, automate, and scale ideas faster.
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## 🌐 Project Vision
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+The goal of this platform is to create a **comprehensive AI ecosystem directory** that connects innovators with the best technologies shaping the future.
 
-Changes made via Lovable will be committed automatically to this repo.
+AI Buddies aims to:
 
-**Use your preferred IDE**
+* Simplify AI tool discovery
+* Help startups build faster using AI
+* Provide structured AI resources for developers and founders
+* Create a futuristic knowledge hub for emerging technologies
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## ✨ Key Features
 
-Follow these steps:
+### 🔹 Futuristic UI Experience
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+* Modern AI-themed interface
+* Cyber-tech color palette
+* Smooth transitions and hover animations
+* Responsive design for desktop and mobile
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### 🔹 5-Second Loader Animation
 
-# Step 3: Install the necessary dependencies.
-npm i
+A dynamic loading animation featuring:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+* Neural network style connections
+* Glowing nodes and digital grid background
+* Progress bar animation
 
-**Edit a file directly in GitHub**
+This creates a **futuristic tech-first impression** before the platform loads.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### 🔹 AI Tools Directory
 
-**Use GitHub Codespaces**
+A structured database of **100+ AI tools**, categorized into sections such as:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+* Writing & Content AI
+* Graphics & Design AI
+* Video & Audio AI
+* Web Development
+* Application Development
+* Automation Tools
+* Startup Tools
+* Finance & Productivity AI
+* AI APIs & Platforms
 
-## What technologies are used for this project?
+Each tool includes:
 
-This project is built with:
+* Tool name
+* Description
+* Category
+* Pricing model
+* Startup stage usage
+* API availability
+* Official website link
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### 🔹 Smart Filtering & Search
 
-## How can I deploy this project?
+Users can easily discover tools using:
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+* Category filters
+* Keyword search
+* Tags like **Free Plan**, **Paid**, or **API Available**
 
-## Can I connect a custom domain to my Lovable project?
+### 🔹 Tool Detail Pages
 
-Yes, you can!
+Each AI tool has a dedicated page with:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+* Tool overview
+* Key features
+* Pricing information
+* Startup use cases
+* API documentation links
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+### 🔹 Featured AI Tools
+
+Highlight popular platforms used by startups such as:
+
+* ChatGPT
+* Claude
+* Canva
+* Midjourney
+* Zapier
+
+---
+
+## 🧠 Target Audience
+
+This platform is built for:
+
+* Startup founders
+* Developers & engineers
+* Designers & creators
+* Entrepreneurs
+* Hackathon participants
+* Students exploring AI technology
+
+---
+
+## 🛠️ Suggested Tech Stack
+
+### Frontend
+
+* React / Next.js
+* TailwindCSS
+* Framer Motion (animations)
+
+### Backend
+
+* Node.js
+* Supabase database
+
+### Hosting
+
+* Vercel / Netlify
