@@ -1,16 +1,14 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Plus } from "lucide-react";
+import { ArrowRight, Plus, Unlock } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-      {/* Grid background */}
       <div className="absolute inset-0 bg-grid opacity-40" />
-      
-      {/* Gradient orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-primary/10 blur-[120px]" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-secondary/10 blur-[120px]" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-primary/8 blur-[120px]" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-secondary/8 blur-[120px]" />
 
       <div className="container mx-auto px-4 text-center relative z-10">
         <motion.div
@@ -19,7 +17,7 @@ const HeroSection = () => {
           transition={{ duration: 0.7 }}
         >
           <div className="inline-flex items-center gap-2 bg-muted rounded-full px-4 py-1.5 mb-8 text-xs text-muted-foreground border border-border">
-            <span className="w-2 h-2 rounded-full bg-secondary animate-pulse-glow" />
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse-glow" />
             Powered by Xplorevo Pvt Ltd
           </div>
 
@@ -40,10 +38,15 @@ const HeroSection = () => {
                 Explore Tools <ArrowRight className="ml-2 w-4 h-4" />
               </a>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-border text-foreground hover:bg-muted font-heading text-base px-8">
-              <a href="#community">
+            <Button asChild size="lg" variant="outline" className="border-border text-foreground hover:bg-muted font-heading text-base px-8">
+              <Link to="/submit-tool">
                 <Plus className="mr-2 w-4 h-4" /> Submit AI Tool
-              </a>
+              </Link>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="border-primary/30 text-primary hover:bg-primary/10 font-heading text-base px-8">
+              <Link to="/free-ai-tools">
+                <Unlock className="mr-2 w-4 h-4" /> Free AI Tools
+              </Link>
             </Button>
           </div>
         </motion.div>
