@@ -7,6 +7,7 @@ import StatsSection from "@/components/StatsSection";
 import ToolsDirectory from "@/components/ToolsDirectory";
 import FeaturedTools from "@/components/FeaturedTools";
 import StartupStack from "@/components/StartupStack";
+import YouTubeLearningHub from "@/components/YouTubeLearningHub";
 import CommunitySection from "@/components/CommunitySection";
 import Footer from "@/components/Footer";
 
@@ -30,6 +31,7 @@ const Index = () => {
           <FeaturedTools />
           <ToolsDirectory searchQuery={searchQuery} />
           <StartupStack />
+          <YouTubeLearningHub />
           <CommunitySection />
           <Footer />
         </div>

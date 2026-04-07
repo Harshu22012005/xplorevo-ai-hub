@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Users, Plus } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Users } from "lucide-react";
 
 const CommunitySection = () => {
   return (
@@ -22,18 +21,11 @@ const CommunitySection = () => {
           <p className="text-muted-foreground mb-8">
             Connect with innovators, founders, and AI builders exploring the future of technology.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground glow-primary font-heading">
-              <a href="https://chat.whatsapp.com/GY2GwPUTC8uAXP0gGGTzL7" target="_blank" rel="noopener noreferrer">
-                <Users className="mr-2 w-4 h-4" /> Join Community
-              </a>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="border-border text-foreground hover:bg-muted font-heading">
-              <Link to="/submit-tool">
-                <Plus className="mr-2 w-4 h-4" /> Submit AI Tool
-              </Link>
-            </Button>
-          </div>
+          <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground glow-primary font-heading">
+            <a href="https://chat.whatsapp.com/GY2GwPUTC8uAXP0gGGTzL7" target="_blank" rel="noopener noreferrer">
+              <Users className="mr-2 w-4 h-4" /> Join Community on WhatsApp
+            </a>
+          </Button>
         </motion.div>
       </div>
     </section>

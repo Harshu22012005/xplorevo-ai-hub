@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Search, Menu, X, Unlock } from "lucide-react";
+import { Search, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/xtn-logo.png";
 
@@ -16,8 +16,8 @@ const Navbar = ({ onSearch }: { onSearch?: (query: string) => void }) => {
     <nav className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-xl">
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
         <Link to="/" className="flex items-center gap-2">
-          <img src={logo} alt="XTN" className="h-9 w-9 rounded-md object-cover" />
-          <span className="font-heading font-bold text-lg text-gradient hidden sm:block">XTN AI Buddies</span>
+          <img src={logo} alt="Your AI Buddie" className="h-9 w-9 rounded-md object-cover" />
+          <span className="font-heading font-bold text-lg text-gradient hidden sm:block">Your AI Buddie</span>
         </Link>
 
         <div className="hidden md:flex items-center bg-muted rounded-lg px-3 py-1.5 w-80">
@@ -34,10 +34,8 @@ const Navbar = ({ onSearch }: { onSearch?: (query: string) => void }) => {
         <div className="hidden md:flex items-center gap-6 text-sm">
           <a href="/#tools" className="text-muted-foreground hover:text-foreground transition-colors">Tools</a>
           <a href="/#categories" className="text-muted-foreground hover:text-foreground transition-colors">Categories</a>
+          <a href="/#youtube" className="text-muted-foreground hover:text-foreground transition-colors">AI Learning</a>
           <a href="/#community" className="text-muted-foreground hover:text-foreground transition-colors">Community</a>
-          <Link to="/free-ai-tools" className="inline-flex items-center gap-1 text-primary hover:text-primary/80 transition-colors font-medium">
-            <Unlock className="w-3.5 h-3.5" /> Free Tools
-          </Link>
         </div>
 
         <button onClick={() => setMobileOpen(!mobileOpen)} className="md:hidden text-foreground">
@@ -59,10 +57,8 @@ const Navbar = ({ onSearch }: { onSearch?: (query: string) => void }) => {
           </div>
           <a href="/#tools" className="block text-muted-foreground hover:text-foreground text-sm" onClick={() => setMobileOpen(false)}>Tools</a>
           <a href="/#categories" className="block text-muted-foreground hover:text-foreground text-sm" onClick={() => setMobileOpen(false)}>Categories</a>
+          <a href="/#youtube" className="block text-muted-foreground hover:text-foreground text-sm" onClick={() => setMobileOpen(false)}>AI Learning</a>
           <a href="/#community" className="block text-muted-foreground hover:text-foreground text-sm" onClick={() => setMobileOpen(false)}>Community</a>
-          <Link to="/free-ai-tools" className="block text-primary hover:text-primary/80 text-sm font-medium" onClick={() => setMobileOpen(false)}>
-            <Unlock className="w-3.5 h-3.5 inline mr-1" /> Free AI Tools
-          </Link>
         </div>
       )}
     </nav>
