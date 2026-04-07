@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Plus, Unlock } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ArrowRight, Users } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -39,14 +38,9 @@ const HeroSection = () => {
               </a>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-border text-foreground hover:bg-muted font-heading text-base px-8">
-              <Link to="/submit-tool">
-                <Plus className="mr-2 w-4 h-4" /> Submit AI Tool
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="border-primary/30 text-primary hover:bg-primary/10 font-heading text-base px-8">
-              <Link to="/free-ai-tools">
-                <Unlock className="mr-2 w-4 h-4" /> Free AI Tools
-              </Link>
+              <a href="https://chat.whatsapp.com/GY2GwPUTC8uAXP0gGGTzL7" target="_blank" rel="noopener noreferrer">
+                <Users className="mr-2 w-4 h-4" /> Join Community
+              </a>
             </Button>
           </div>
         </motion.div>
